@@ -12,14 +12,12 @@ a[title=""]
 {
 	outline: 2px solid #fd0;
 }
-
 // IMAGES
 img:not([alt]),
 img[alt=""]
 {
 	outline: 2px solid red;
 }
-
 // MISC
 label:not([for]),
 label[for=""],
