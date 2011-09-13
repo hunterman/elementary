@@ -1,0 +1,19 @@
+.g-nav,
+{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.g-nav ol,
+.g-nav ul
+{
+    @extend .g-nav;
+}
+.g-nav-horizontal .z-item
+{
+    display:inline-block;
+}
+.lte7 .g-nav-horizontal .z-item
+{
+    display:inline;
+}

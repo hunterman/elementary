@@ -1,0 +1,24 @@
+table.g-table-fixed
+{
+    table-layout:fixed;
+}
+table.g-table-fixed
+{
+    width:100%;
+}
+table.g-table-layout,
+table.g-table-layout > tr,
+table.g-table-layout > tr > td,
+table.g-table-layout > tbody > tr,
+table.g-table-layout > tbody > tr > td,
+{
+    vertical-align:top;
+}
+table.g-vmiddle,
+table.g-vmiddle > tr,
+table.g-vmiddle > tr > td,
+table.g-vmiddle > tbody > tr,
+table.g-vmiddle > tbody > tr > td
+{
+    vertical-align:middle !important;
+}

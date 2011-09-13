@@ -1,0 +1,84 @@
+/* Source: http://red-root.com/sandbox/holmes/ */
+// LINKS
+a:not([href]),
+a[href=""]
+{
+	outline: 2px solid red;
+}
+a[href="#"],
+a[href^="javascript"],
+a:not([title]),
+a[title=""]
+{
+	outline: 2px solid #fd0;
+}
+
+// IMAGES
+img:not([alt]),
+img[alt=""]
+{
+	outline: 2px solid red;
+}
+
+// MISC
+label:not([for]),
+label[for=""],
+input[type="text"]:not([name]),
+input[type="text"][name=""],
+input[type="password"]:not([name]),
+input[type="password"][name=""],
+select:not([name]),
+select[name=""],
+textarea:not([name]),
+textarea[name=""],
+abbr:not([title]),
+abbr[title=""],
+[class=""],
+[id=""],
+table:not([summary]),
+table[summary=""]
+{
+	outline: 2px solid red;
+}
+// DEPRECATED & NON-W3C CONTENT ELEMENTS (darkgrey)
+applet,
+acronym,
+center,
+dir,
+font,
+strike,
+u,
+big,
+tt,
+marquee, // i've left this is because its naff bascially
+plaintext,
+xmp
+{
+	border: 2px solid darkgrey;
+}
+
+body[bgproperties],
+body[topmargin],
+body[rightmargin],
+body[bottommargin],
+body[leftmargin]
+{
+	outline: 2px solid darkgrey;
+}
+*[bordercolor],
+*[bordercolordark],
+*[bordercolorlight],
+table[frame]
+{
+	border: 2px solid darkgrey;
+}
+// EMPTY ELEMENTS (warning level for now)
+div:empty,
+span:empty,
+li:empty,
+p:empty,
+td:empty,
+th:empty
+{
+	border: 2px solid #fd0;
+}

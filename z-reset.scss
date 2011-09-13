@@ -1,0 +1,276 @@
+/*RESET---------------------------------------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+.z-reset,
+.z-reset table, .z-reset caption, .z-reset tbody, .z-reset tfoot, .z-reset thead, .z-reset tr, .z-reset th, .z-reset td
+{
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+	-webkit-touch-callout:none
+}
+/*HTML----------------------------------------------------------------------------------------------------------------*/
+html
+{
+    overflow-y:scroll;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    // Use a 12px base font size with a 18px line height
+   	font-size:0.75em; // 16px x .75 = 12px
+    line-height:$base-line-height;  // 12px x 1.5 = 18px
+}
+html,
+body
+{
+  height:100%;
+}
+/*BODY----------------------------------------------------------------------------------------------------------------*/
+body
+{
+    // Fixes exaggerated text resizing in IE6 and IE7
+    font-size:100%;
+}
+/*HTML5 display-role reset for older browsers-------------------------------------------------------------------------*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+{
+	display: block;
+}
+/*HEADINGS------------------------------------------------------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    line-height:1;
+    font-weight:700;
+}
+h1
+{
+    @include font-size(40, false, true);
+}
+h2
+{
+    @include font-size(24, false, true);
+}
+h3
+{
+    @include font-size(18, false, true);
+}
+h4
+{
+    @include font-size(14, false, true);
+}
+h5, h6
+{
+    @include font-size(12, false, true);
+}
+h1 img,
+h2 img,
+h3 img,
+h4 img,
+h5 img,
+h6 img
+{
+    margin : 0;
+}
+/*LISTS---------------------------------------------------------------------------------------------------------------*/
+ul,ol
+{
+	list-style-position:inside;
+    margin: 0 0 19px;
+    padding: 0;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul
+{
+    margin-left: 20px;
+}
+/*TEXT ELEMENTS-------------------------------------------------------------------------------------------------------*/
+body,
+caption,
+th,
+td,
+input,
+textarea,
+select,
+option,
+legend,
+fieldset
+{
+  // The following font family declarations are based on the Microsoft core web
+  // fonts which are common fonts available on most computer systems. The DejaVu
+  // and Nimbus Sans fonts are commonly available on Linux systems where the MS
+  // fonts are less common. Tahoma and Helvetica are also widely available.
+  //
+  // A user's web browser will look at the comma-separated list and will
+  // attempt to use each font in turn until it finds one that is available
+  // on the user's computer. The final "generic" font (sans-serif, serif or
+  // monospace) hints at what type of font to use if the web browser doesn't
+  // find any of the fonts in the list.
+  //
+  // font-family: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+  // font-family: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+  // font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
+  //
+  // font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  // font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+  // font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  // font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  //
+  // font-family: "Courier New", "DejaVu Sans Mono", monospace;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+p
+{
+    margin:0 0 unquote($base-line-height + 'em');
+}
+p + p
+{
+    margin-top:unquote('-' + $base-line-height + 'em');
+    text-indent:2em;
+}
+strong
+{
+	font-weight:700;
+}
+blockquote,
+q
+{
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after
+{
+	content: '';
+	content: none;
+}
+pre,
+code
+{
+    font-size: 1.1em;
+    // Monospace fonts can be hard to read
+    font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+}
+sup
+{
+    vertical-align: baseline;
+    position: relative;
+    top: -0.9em;
+}
+sub
+{
+    vertical-align: baseline;
+    position: relative;
+    bottom: -0.9em;
+}
+::-moz-selection
+{
+    background:#b8de0c;
+    color:#fff;
+    text-shadow:none;
+}
+::selection
+{
+    background:#b8de0c;
+    color:#fff;
+    text-shadow:none;
+}
+abbr[title="et cetera"]
+{
+    // plush “et cetera”
+    // Mac: try for a combined ‘e’ and ‘t’ style,
+    // Windows: try match Palatino’s style. “Constantia” is a Vista font
+    font-family: "Hoefler Text", Palatino, Constantia, "Palatino Linotype", cursive;
+ 	font-style: italic;
+ 	font-size: 1.2em;
+ 	line-height: 0;
+}
+hr
+{
+    display: block;
+    border: 0;
+    border-top: 1px solid #bfbfbf;
+    height: 1px;
+    padding: 0;
+    clear: both;
+    float: none;
+    width: 100%;
+    $margin:$base-line-height / 2 - $one-pixel-ems;
+    margin:unquote($margin+'em') 0;
+}
+.ie6 hr {margin:-8px auto 11px;}
+/*LINKS---------------------------------------------------------------------------------------------------------------*/
+a img
+{
+    border:none;
+}
+a:hover,
+a:active
+{
+    // Improve readability when focused and hovered in all browsers: http://people.opera.com/patrickl/experiments/keyboard/test
+    outline: 0;
+}
+/*IMAGES---------------------------------------------------------------------------------------------------------------*/
+img
+{
+    // don’t split images over pages, duh very little browser support for this
+    page-break-inside: avoid;
+    vertical-align:middle;
+}
+.lte7 img
+{
+	-ms-interpolation-mode: bicubic;
+	// Картинки. При отсутствующем аттрибуте title всплывает подсказка, текст которой берется у alt (ie6, ie7)
+	// delete title, where alt="..."  Если подключена програмика - удалить
+    behavior: expression( runtimeStyle.scrollbarFaceColor = '#fff', (alt&&!title) ? title = '' : '' );
+}
+/*TABLES--------------------------------------------------------------------------------------------------------------*/
+table,
+.z-reset table,
+table.z-reset
+{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+th
+{
+    // ie6 fix
+    font-weight:500;
+}
+/*MISC----------------------------------------------------------------------------------------------------------------*/
+svg:not(:root)
+{
+    // Correct overflow not hidden in IE9
+    overflow: hidden;
+}
+audio:not([controls])
+{
+    display: none;
+}
+audio, canvas, video
+{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}

@@ -1,0 +1,7 @@
+/*GRIDS---------------------------------------------------------------------------------------------------------------*/
+.z-grid
+{
+    margin:0 auto;
+    background:url(img/grid.png) repeat left top;
+}
+@include grid('.z-grid', 24, 30, 10);

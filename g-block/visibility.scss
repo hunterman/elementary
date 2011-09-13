@@ -1,0 +1,50 @@
+@mixin opacity($value){
+    $ms: $value * 100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$ms})";
+    zoom: 1;
+    filter: alpha(opacity=$ms);
+    -moz-opacity: $value;
+    -khtml-opacity: $value;
+    opacity:$value;
+    //filter: expression(runtimeStyle.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity='+currentStyle.opacity*100+')');
+}
+.g-hidden
+{
+    display:none;
+}
+.g-invisible
+{
+    visibility:hidden;
+}
+.g-secret
+{
+    display:none;
+    visibility:hidden;
+}
+.g-screenreader
+{
+    position:absolute !important;
+    clip: rect(1px, 1px, 1px, 1px)
+}
+.g-overlay
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.lte7 .g-screenreader
+{
+    clip: rect(1px 1px 1px 1px);
+}
+.lte7 .g-opacity
+{
+    // Прозрачность. Своя реализация (ie6, ie7). Некорректно отображает прозрачные элементы без фона
+	filter: expression(runtimeStyle.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity='+currentStyle.opacity*100+')');
+	zoom: 1;
+}
+[hidden]
+{
+    display: none;
+}

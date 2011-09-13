@@ -1,0 +1,191 @@
+$root-font-size: 12 !default;
+$baseline: 18 !default;
+$base-line-height:1.5 !default;
+$one-pixel-ems: 1 / $root-font-size;
+$debug: false !default;
+
+$pie-location: 'lib/PIE5.htc';
+@mixin pie{
+    behavior:url($pie-location);
+}
+
+@mixin font-size($size, $is-important:false, $include-lineheight: false) {
+    @if $is-important {
+        font-size:unquote(($size)+'px') !important;
+        font-size:unquote(($size / $root-font-size)+'rem !important');
+    } @else {
+        font-size:unquote(($size)+'px');
+        font-size:unquote(($size / $root-font-size)+'rem');
+    }
+    @if $include-lineheight {
+        $line-height: $baseline / $size;
+        @if $line-height < $base-line-height {
+            $line-height: $line-height * 3;
+        }
+        line-height: $line-height;
+    }
+}
+
+@mixin line-height($value){
+    line-height:$value / $root-font-size;
+}
+
+// Blueprint grid implementation
+@mixin grid($css-class, $column-count, $column-width, $column-gap){
+    #{$css-class}
+    {
+        width: unquote($column-count * $column-width + ($column-count - 1)*$column-gap + 'px');
+        @extend .g-clearfix;
+    }
+    #{$css-class+'-col'}
+    {
+        float:left;
+        margin-right:unquote($column-gap + 'px');
+    }
+    .ie6 #{$css-class+'-col'}
+    {
+        display:inline;
+        overflow-x:hidden;
+    }
+    #{$css-class+'-push'},
+    #{$css-class+'-pull'}
+    {
+        float:left;
+        position:relative;
+    }
+    #{$css-class+'-border'}
+    {
+        padding-right:4px;
+        margin-right:5px;
+        border-right:1px solid #ddd;
+    }
+    #{$css-class+'-colborder'}
+    {
+        padding-right:24px;
+        margin-right:25px;
+        border-right:1px solid #ddd;
+    }
+    @for $i from 1 through $column-count {
+        $current-column-width: $column-width * $i + $column-gap*($i - 1);
+        #{$css-class+'-col-'+$i}
+        {
+            @extend #{$css-class+'-col'};
+            width:unquote($current-column-width + 'px');
+            @if $i == $column-count {
+                margin-right:0;
+            }
+        }
+        $delta-column-width:$current-column-width + $column-gap*$i;
+        #{$css-class+'-append-'+$i}
+        {
+            padding-right: unquote($delta-column-width + 'px')
+        }
+        #{$css-class+'-prepend-'+$i}
+        {
+            padding-left: unquote($delta-column-width + 'px')
+        }
+        #{$css-class+'-pull-'+$i}
+        {
+            @extend #{$css-class+'-pull'};
+            margin-left: unquote('-' + $delta-column-width + 'px')
+        }
+        #{$css-class+'-push-'+$i}
+        {
+            @extend #{$css-class+'-push'};
+            margin:0 unquote('-' + $delta-column-width + 'px') unquote($base-line-height + 'em') unquote($delta-column-width + 'px');
+        }
+    }
+    #{$css-class+'-prepend-top'}
+    {
+        margin-top:unquote($base-line-height + 'em');
+    }
+    #{$css-class+'-append-bottom'}
+    {
+        margin-bottom:unquote($base-line-height + 'em');
+    }
+    #{$css-class+'-last'}
+    {
+        margin-right:0;
+        padding-right:0;
+    }
+    #{$css-class+'-first'}
+    {
+        margin-left:0;
+        padding-left:0;
+    }
+    #{$css-class+'-top'}
+    {
+        margin-top:0;
+        padding-top:0;
+    }
+    #{$css-class+'-bottom'}
+    {
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+    #{$css-class+'-left'}
+    {
+        margin:unquote($base-line-height + 'em') unquote($base-line-height + 'em') unquote($base-line-height + 'em') 0;
+        padding:0;
+    }
+}
+@mixin border-radius($value){
+    -webkit-border-radius:$value;
+    -moz-border-radius:$value;
+    -khtml-border-radius:$value;
+    border-radius:$value;
+}
+@mixin linear-gradient($value, $pie: false){
+    background-image: -moz-linear-gradient(unquote($value));
+    background-image: -webkit-linear-gradient(unquote($value));
+    background-image: -o-linear-gradient(unquote($value));
+    background-image: -ms-linear-gradient(unquote($value));
+    background-image: linear-gradient(unquote($value));
+    @if $pie {
+        -pie-background:linear-gradient(unquote($value));
+    }
+}
+@mixin box-shadow($value){
+    -moz-box-shadow:$value;
+    -webkit-box-shadow:$value;
+    box-shadow:$value;
+}
+@mixin text-shadow($value){
+    -moz-text-shadow:$value;
+    -webkit-text-shadow:$value;
+    text-shadow:$value;
+}
+
+@mixin text-overflow($value){
+    -o-text-overflow:$value;
+    -moz-binding: url( library/moz-fix-text-overflow.xml#ellipsis );
+    -ms-text-overflow:$value;
+    text-overflow:$value;
+}
+
+@mixin pre-wrap {
+    white-space: -pre-wrap; // Opera 4-6
+    white-space: -o-pre-wrap; // Opera 7
+    white-space: -moz-pre-wrap; // Mozilla, since 1999
+    word-wrap: break-word; // Internet Explorer 5.5+
+    white-space:pre-wrap; //css 3
+}
+
+@mixin box-sizing($value){
+    -moz-box-sizing:$value;
+    -ms-box-sizing:$value;
+    -webkit-box-sizing:$value;
+    box-sizing:$value;
+}
+
+@mixin background-clip($value){
+    -webkit-background-clip:$value;
+    -moz-background-clip:$value;
+    background-clip:$value;
+}
+
+@mixin user-select($value){
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  user-select: $value;
+}

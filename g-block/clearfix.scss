@@ -1,0 +1,17 @@
+.g-clearfix {
+	&:before{
+		content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after{
+        @extend .g-clearfix:before;
+        clear: both;
+	}
+}
+.lte7 .g-clearfix
+{
+    zoom: 1;
+}
+

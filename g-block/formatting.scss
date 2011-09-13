@@ -1,0 +1,71 @@
+.g-bold
+{
+    font-weight:700 !important;
+}
+.g-text-right
+{
+    text-align:right !important;
+}
+.g-text-left
+{
+    text-align:left !important;
+}
+.g-text-center
+{
+    text-align:center !important;
+}
+.g-float-r
+{
+    float:right !important;
+}
+.g-float-l
+{
+    float:left !important;
+}
+.ie6 .g-float-r,
+.ie6 .g-float-l
+{
+	display: inline !important; // ie6 double margin bug fix
+}
+.g-upper
+{
+    text-transform:uppercase !important;
+}
+.g-caps
+{
+    font-size:1.2em;
+    font-variant:small-caps;
+    letter-spacing:1px;
+    line-height:1%;
+    padding:0 2px;
+    text-transform:lowercase;
+}
+.g-italic
+{
+    font-style:italic;
+}
+.g-vmiddle
+{
+    vertical-align:middle !important;
+}
+.g-vtop
+{
+    vertical-align:top !important;
+}
+.g-vbottom
+{
+    vertical-align:bottom !important;
+}
+.g-iblock
+{
+    display:inline-block !important;
+}
+.ie6 .g-iblock,
+.ie7 .g-iblock
+{
+    display:inline !important;
+}
+.g-wide
+{
+    width:100% !important;
+}

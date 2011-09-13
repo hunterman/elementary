@@ -1,0 +1,14 @@
+@each $size in 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 30, 40
+{
+    .g-font-#{$size}
+    {
+        @include font-size($size, true);
+    }
+}
+@each $height in 10, 12, 14, 16, 18, 20
+{
+    .g-line-#{$height}
+    {
+        @include line-height($height);
+    }
+}
