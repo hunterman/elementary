@@ -1,4 +1,4 @@
-/*FORMS---------------------------------------------------------------------------------------------------------------*/
+/*FORMS------------------------------------------------------------------------------------------THANKS FORMALIZE.ME--*/
 input[type="reset"],
 input[type="button"],
 input[type="submit"],
@@ -200,14 +200,6 @@ input[type="checkbox"]:active
 {
   @include box-shadow(none);
 }
-//input[type="search"]
-//{
-    // Consistent box sizing and appearance h5blt
-//    -webkit-appearance: textfield;
-//    -moz-box-sizing: content-box;
-//    -webkit-box-sizing: content-box;
-//    box-sizing: content-box;
-//}
 /*Tweaks for Safari + Chrome------------------------------------------------------------------------------------------*/
 @media (-webkit-min-device-pixel-ratio: 0) {
   select
